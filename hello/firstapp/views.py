@@ -2,15 +2,25 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
- return HttpResponse("<h2>Главная</h2>")
+ header = "Персональные данные" # обычная переменная
+ langs = ["Английский", "Немецкий", "Испанский"] # массив
+ user = {"name": "Максим,", "age": 30} # словарь
+ addr = ("Виноградная", 23, 45) # кортеж
+ data = {"header": header, "langs": langs, "user": user, "address": addr}
+ return render(request, "index.html", context=data)
+
+
 def about(request):
  return HttpResponse("<h2>О сайте</h2>")
+
 def contact(request):
  return HttpResponse("<h2>Контакты</h2>")
+
 def products(request, productid):
  category = request.GET.get("cat", "")
  output = "<h2>Продукт № {0} Категория: {1}</h2>" .format(productid, category)
  return HttpResponse(output)
+
 def users(request):
  id = request.GET.get("id", 1)
  name = request.GET.get("name", "Максим")
