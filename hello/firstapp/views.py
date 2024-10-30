@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
- return render(request, "firstapp/index.html")
+ cat = ["Ноутбуки", "Принтеры", "Сканеры", "Диски", "Шнуры"]
+ return render(request, "firstapp/index.html", context={"cat": cat})
 
 def about(request):
  return HttpResponse("<h2>О сайте</h2>")
