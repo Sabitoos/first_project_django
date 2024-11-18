@@ -47,6 +47,9 @@ class Book(models.Model):
  verbose_name="ISBN книги")
  def __str__(self):
   return self.title
+ def display_author(self):
+  return ', '.join([author.last_name for author in self.author.all()])
+ display_author.short_description = 'Авторы'
  def get_absolute_url(self):
  # Возвращает url-адрес для доступа к определенному экземпляру книги.
   return reverse('book-detail', args=[str(self.id)])
