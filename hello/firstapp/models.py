@@ -12,6 +12,7 @@ class Student(models.Model):
  name = models.CharField(max_length=30)
  courses = models.ManyToManyField(Course)
 
+
 class User(models.Model):
  name = models.CharField(max_length=20)
 class Account(models.Model):
