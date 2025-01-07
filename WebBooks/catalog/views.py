@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 from .models import Book, Author, BookInstance, Genre
 from django.http import HttpResponse
-def index(request):
+def index(request): 
  # Генерация "количеств" некоторых главных объектов
  num_books = Book.objects.all().count()
  num_instances = BookInstance.objects.all().count()
